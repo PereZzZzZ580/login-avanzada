@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { CoreModule } from './core/core-module';
 import { SharedModule } from './shared/shared-module';
-import { AtomicModule } from './atomic/atomic-module';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { AtomicModule } from './atomic/atomic-module';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule,
-    AtomicModule
+    SharedModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

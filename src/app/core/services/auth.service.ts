@@ -5,30 +5,38 @@ import { AuthCredentials, AuthResponse } from '../models/auth.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly baseUrl = '/api/auth';
-  private readonly tokenKey = 'tienda_token';
+  private readonly baseUrl = 'http://localhost:8080/api/auth';
+  private readonly tokenKey = 'token';
+  private readonly rolesKey = 'roles';
 
   constructor(private readonly http: HttpClient) {}
 
-  login(payload: AuthCredentials): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, payload).pipe(
-      tap((response) => this.persistSession(response))
+  login(credentials: AuthCredentials): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, credentials).pipe(
+      tap((res) => {
+        localStorage.setItem(this.tokenKey, res.token);
+        localStorage.setItem(this.rolesKey, JSON.stringify(res.roles));
+      })
     );
   }
 
+  register(payload: AuthCredentials): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.baseUrl}/register`, payload);
+  }
+
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.clear();
   }
 
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
 
-  isLoggedIn(): boolean {
-    return !!this.getToken();
+  getRoles(): string[] {
+    return JSON.parse(localStorage.getItem(this.rolesKey) || '[]');
   }
 
-  private persistSession(response: AuthResponse): void {
-    localStorage.setItem(this.tokenKey, response.token);
+  isLoggedIn(): boolean {
+    return !!this.getToken();
   }
 }

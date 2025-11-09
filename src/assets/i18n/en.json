@@ -1,0 +1,9 @@
+{
+  "LOGIN": {
+    "TITLE": "Sign in",
+    "SUBTITLE": "Access your account",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "FORGOT": "Forgot your password?"
+  }
+}

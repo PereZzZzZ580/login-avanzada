@@ -1,0 +1,9 @@
+{
+  "LOGIN": {
+    "TITLE": "Iniciar sesión",
+    "SUBTITLE": "Accede a tu cuenta",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "FORGOT": "¿Olvidaste tu contraseña?"
+  }
+}

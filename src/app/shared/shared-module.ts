@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { HasRoleDirective } from '../core/directives/has-role.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HasRoleDirective
+  ],
   imports: [
     CommonModule
   ],
   exports: [
-    CommonModule
+    CommonModule,
+    HasRoleDirective
   ]
 })
 export class SharedModule { }

@@ -1,1 +1,14 @@
-<p>login works!</p>
+<app-auth-template
+  [title]="'LOGIN.TITLE' | translate"
+  [subtitle]="'LOGIN.SUBTITLE' | translate"
+>
+  <app-login-form
+    [form]="form"
+    [submitLabel]="loading ? 'Ingresando...' : 'Ingresar'"
+    (submitForm)="onSubmit()"
+    (forgotPassword)="onForgotPassword()"
+  ></app-login-form>
+  <p *ngIf="error" class="mt-4 text-sm text-red-600 text-center">
+    {{ error }}
+  </p>
+</app-auth-template>

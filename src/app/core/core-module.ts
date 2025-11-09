@@ -2,11 +2,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { I18nModule } from './i18n/translate.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    I18nModule
   ],
   providers: [
     {

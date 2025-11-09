@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-icon',
   standalone: false,
   templateUrl: './icon.html',
-  styleUrl: './icon.scss',
+  styleUrls: ['./icon.scss']
 })
-export class Icon {
+export class IconComponent {
+  @Input() type: 'material' | 'lucide' | 'fontawesome' | 'hero' = 'material';
+  @Input() name = 'home';
+  @Input() size: number | string = 20;
+  @Input() color?: string;
+  @Input() spin = false;
+  @Input() ariaLabel?: string;
 
+  get sizePx(): string {
+    return typeof this.size === 'number' ? `${this.size}px` : this.size;
+  }
 }

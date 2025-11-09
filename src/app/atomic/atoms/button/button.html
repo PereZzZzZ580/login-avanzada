@@ -1,1 +1,11 @@
-<p>button works!</p>
+<button
+  mat-raised-button
+  class="w-full flex items-center justify-center gap-2 rounded-lg font-semibold"
+  [color]="color"
+  [type]="type"
+  [disabled]="disabled"
+  (click)="onClick()"
+>
+  <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  {{ label }}
+</button>
