@@ -1,0 +1,17 @@
+import { Component, signal } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: false,
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  protected readonly title = signal('tienda-online-ui');
+
+  constructor(private readonly translate: TranslateService) {
+    this.translate.setDefaultLang('es');
+    this.translate.use('es');
+  }
+}

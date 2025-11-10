@@ -14,14 +14,11 @@ export class HasRoleDirective {
     private readonly auth: AuthService
   ) {}
 
-  @Input() set appHasRole(role: string | string[]) {
+  @Input() set appHasRole(role: string) {
     this.vcr.clear();
     this.roles = this.auth.getRoles();
 
-    const requiredRoles = Array.isArray(role) ? role : [role];
-    const isAuthorized = requiredRoles.some((required) => this.roles.includes(required));
-
-    if (isAuthorized) {
+    if (this.roles.includes(role)) {
       this.vcr.createEmbeddedView(this.tpl);
     }
   }

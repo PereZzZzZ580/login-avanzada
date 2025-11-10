@@ -1,9 +1,9 @@
 {
   "LOGIN": {
-    "TITLE": "Iniciar sesión",
+    "TITLE": "Iniciar sesiÃ³n",
     "SUBTITLE": "Accede a tu cuenta",
-    "EMAIL": "Correo electrónico",
-    "PASSWORD": "Contraseña",
-    "FORGOT": "¿Olvidaste tu contraseña?"
+    "EMAIL": "Correo electrÃ³nico",
+    "PASSWORD": "ContraseÃ±a",
+    "FORGOT": "Â¿Olvidaste tu contraseÃ±a?"
   }
 }

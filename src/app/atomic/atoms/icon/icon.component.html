@@ -1,0 +1,57 @@
+<ng-container [ngSwitch]="type">
+  <mat-icon *ngSwitchCase="'material'"
+            [attr.aria-label]="ariaLabel"
+            [style.fontSize]="sizePx"
+            [style.color]="colorStyle"
+            [ngClass]="[colorClass, spin ? 'spin' : '']">
+    {{ name }}
+  </mat-icon>
+
+  <lucide-icon *ngSwitchCase="'lucide'"
+               [name]="name"
+               [attr.aria-label]="ariaLabel"
+               [style.width]="sizePx"
+               [style.height]="sizePx"
+               [style.color]="colorStyle"
+               [ngClass]="[colorClass, spin ? 'spin' : '']">
+  </lucide-icon>
+
+  <ng-container *ngSwitchCase="'fontawesome'">
+    <fa-icon *ngIf="faIcon; else faFallback"
+             [icon]="faIcon"
+             [attr.aria-label]="ariaLabel"
+             [style.width]="sizePx"
+             [style.height]="sizePx"
+             [style.color]="colorStyle"
+             [ngClass]="[colorClass, spin ? 'spin' : '']">
+    </fa-icon>
+  </ng-container>
+
+  <ng-icon *ngSwitchCase="'hero'"
+           [name]="heroIconName"
+           [attr.aria-label]="ariaLabel"
+           [style.width]="sizePx"
+           [style.height]="sizePx"
+           [style.color]="colorStyle"
+           [ngClass]="[colorClass, spin ? 'spin' : '']">
+  </ng-icon>
+
+  <span *ngSwitchDefault
+        class="material-symbols-rounded"
+        [attr.aria-label]="ariaLabel"
+        [style.fontSize]="sizePx"
+        [style.color]="colorStyle"
+        [ngClass]="[colorClass, spin ? 'spin' : '']">
+    {{ name }}
+  </span>
+</ng-container>
+
+<ng-template #faFallback>
+  <span class="material-symbols-rounded"
+        [attr.aria-label]="ariaLabel"
+        [style.fontSize]="sizePx"
+        [style.color]="colorStyle"
+        [ngClass]="[colorClass, spin ? 'spin' : '']">
+    {{ name }}
+  </span>
+</ng-template>
