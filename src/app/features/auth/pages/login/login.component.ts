@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { AuthDomainService } from '../../services/auth-domain.service';
@@ -37,12 +37,12 @@ export class LoginComponent {
       finalize(() => this.loading = false)
     ).subscribe({
       next: () => console.log('Login correcto'),
-      error: () => this.error = 'Usuario o contraseña incorrectos'
+      error: () => this.error = 'Usuario o contraseÃ±a incorrectos'
     });
   }
 
   onForgotPassword(): void {
-    console.log('Recuperar contraseña');
+    console.log('Recuperar contraseÃ±a');
   }
 }
 

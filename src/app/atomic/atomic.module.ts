@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +22,13 @@ import { LoginFormComponent } from './organisms/login-form/login-form.component'
 import { AuthTemplateComponent } from './templates/auth-template/auth-template.component';
 import { DesignShowcaseComponent } from './pages/design-showcase/design-showcase.component';
 
+const atomicRoutes: Routes = [
+  {
+    path: 'pages/design-showcase',
+    component: DesignShowcaseComponent
+  }
+];
+
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -35,6 +43,7 @@ import { DesignShowcaseComponent } from './pages/design-showcase/design-showcase
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule.forChild(atomicRoutes),
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
